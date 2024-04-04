@@ -1,6 +1,7 @@
 package com.dendeberia.facebookassignment.service.impl;
 
 import com.dendeberia.facebookassignment.config.FacebookCredentials;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -16,11 +17,13 @@ class AuthorizationServiceImplTest {
 
     AuthorizationServiceImpl authorizationService;
 
+    // Disabled as it required real client credentials
+    @Disabled
     @Test
     void exchangeToken_whenValidClientCredentialsProvided_thenShouldExchangeToken() {
         // given
         authorizationService = new AuthorizationServiceImpl(new RestTemplate(),
-                new FacebookCredentials("1810392512812156", "de5e6467a3c72f73f14aa0428578baf8", null));
+                new FacebookCredentials("", "", null));
 
         // when
         String token = authorizationService.exchangeToken();
